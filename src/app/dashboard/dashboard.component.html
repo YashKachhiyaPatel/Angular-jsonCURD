@@ -1,0 +1,68 @@
+<nav class="navbar navbar-light bg-primary">
+  <div class="container-fluid">
+    <h1 class="text-white">Angular-CURD</h1>
+
+  </div>
+</nav>
+
+<div class="container">
+  <div class="row">
+    <div class="col-4 bg-light mt-2">
+
+      <form class="mt-2" #f="ngForm" (submit)="addUser(f)">
+        <div class="mb-3 form-group">
+          <input type="hidden" name="id" class="form-control" [(ngModel)]="emp.id">
+        </div>
+        <div class="mb-3 form-group">
+          <label for="fullname" class="form-label">Full Name</label>
+          <input type="text" name="fullname" class="form-control" [(ngModel)]="emp.fullname">
+        </div>
+        <div class="mb-1">
+          <label for="exampleInputEmail1" class="form-label">Email address</label>
+          <input type="email" name="email" class="form-control" [(ngModel)]="emp.email">
+        </div>
+        <div class="mb-1">
+          <label for="mobile" class="form-label">Mobile Number</label>
+          <input type="number" name="mobile" class="form-control" [(ngModel)]="emp.mobile">
+        </div>
+        <div class="mb-1">
+          <label for="salary" class="form-label">Salary</label>
+          <input type="number" name="salary" class="form-control" [(ngModel)]="emp.salary">
+        </div>
+        <br>
+        <input type="submit" value="Add" class="btn btn-primary" *ngIf="!isEdit">
+        <button type="submit" class="btn btn-success" (click)="updateEmployee(f)" *ngIf="isEdit">Update</button>
+
+      </form>
+
+    </div>
+
+
+    <div class="col-8">
+
+      <table class="table text-center mt-3 table-secondary">
+        <thead>
+          <tr>
+            <th scope="col">Full Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Mobile</th>
+            <th scope="col">Salary</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let employee of employees">
+          <tr>
+            <td>{{employee.fullname}}</td>
+            <td>{{employee.email}}</td>
+            <td>{{employee.mobile}}</td>
+            <td>{{employee.salary}}</td>
+            <td><i class="fa fa-edit icon-size" (click)="editEmployee(employee)"></i></td>
+            <td><i class="fa fa-trash icon-size" (click)="deleteEmployee(employee)"></i></td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>

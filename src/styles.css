@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+.icon-size{
+    font-size: 24px;
+    cursor: pointer;
+}
+.fa-edit{
+    color: rgb(23, 116, 38);
+}
+.fa-trash{
+    color: red;
+}
